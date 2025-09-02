@@ -35,7 +35,6 @@ This project contains a **matrix library implemented in C**, as part of learning
 ### Other Operations
 - `matrix* matrixTranspose(matrix* m)` – Transpose the matrix
 - `double matrixDetChio(matrix* m)` – Determinant using Chio's method
-  - **Source:** [Chio's method explanation](https://matematyka.pl/viewtopic.php?t=360950)
 
 ### Example usage
 - See `main.c` for a complete example of how to use the library.
