@@ -37,11 +37,10 @@ int main(){
     // Check if the list is empty
     printf("List %s empty\n", sLinkedListIsEmpty(&list) ? "is" : "is not");
 
-    // // Delete all remaining elements
-    // while (!sLinkedListIsEmpty(&list)) {
-    //     sLinkedListDeleteLast(&list);
-    // }
+    // Delete list
     sLinkedListDeleteList(&list);
+
+    // Check whether the list has been deleted
     sLinkedListPrint(&list);
     printf("List %s empty\n", sLinkedListIsEmpty(&list) ? "is" : "is not");
 

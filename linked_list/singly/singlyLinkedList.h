@@ -34,13 +34,6 @@ void sLinkedListInsertLast(sLinkedListPtr* head, double value);
 int sLinkedListIsEmpty(sLinkedListPtr* head);
 
 /**
- * Delete the first node in the list.
- *
- * @param head Pointer to the head pointer of the list
- */
-void sLinkedListDeleteFirst(sLinkedListPtr* head);
-
-/**
  * Search for a value in the list.
  *
  * @param head Pointer to the head pointer of the list
@@ -53,7 +46,7 @@ int sLinkedListSearch(sLinkedListPtr* head, double value);
  * Get the value of the node at a specific position.
  *
  * @param head Pointer to the head pointer of the list
- * @param pos Position of the node (0-based index)
+ * @param pos Position of the node
  * @return Value at the given position
  */
 double sLinkedListGetValue(sLinkedListPtr* head, int pos);
@@ -62,16 +55,23 @@ double sLinkedListGetValue(sLinkedListPtr* head, int pos);
  * Set the value of the node at a specific position.
  *
  * @param head Pointer to the head pointer of the list
- * @param pos Position of the node (0-based index)
+ * @param pos Position of the node
  * @param value New value to set
  */
 void sLinkedListSetValue(sLinkedListPtr* head, int pos, double value);
 
 /**
+ * Delete the first node in the list.
+ *
+ * @param head Pointer to the head pointer of the list
+ */
+void sLinkedListDeleteFirst(sLinkedListPtr* head);
+
+/**
  * Delete the node at a specific position.
  *
  * @param head Pointer to the head pointer of the list
- * @param pos Position of the node (0-based index)
+ * @param pos Position of the node
  */
 void sLinkedListDeletePos(sLinkedListPtr* head, int pos);
 

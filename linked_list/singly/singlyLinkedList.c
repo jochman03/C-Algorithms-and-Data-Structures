@@ -20,12 +20,14 @@ void sLinkedListInsertFirst(sLinkedListPtr* head, double value) {
     
     // Check if allocation succeeded
     if (newNode == NULL) {
-        allocationFailure(); // Terminates program if memory allocation fails
+        // Terminates program if memory allocation fails
+        allocationFailure();
     }
 
-    // Set new node fields
-    newNode->next = *head;  // New node points to the current head
-    newNode->value = value; // Store the given value in the new node
+    // New node points to the current head
+    newNode->next = *head;
+    // Store the given value in the new node
+    newNode->value = value;
 
     // Update the head pointer to point to the new node
     *head = newNode;
@@ -35,12 +37,14 @@ void sLinkedListInsertLast(sLinkedListPtr* head, double value) {
     // Allocate memory for a new node
     sLinkedListPtr newNode = malloc(sizeof(sLinkedListNode));
     if (newNode == NULL) {
-        allocationFailure(); // Terminate program if memory allocation fails
+        // Terminate program if memory allocation fails
+        allocationFailure();
     }
 
-    // Initialize new node fields
-    newNode->value = value; // Store the given value
-    newNode->next = NULL;   // It will be the last node, so next is NULL
+    // Store the given value
+    newNode->value = value;
+    // It will be the last node, so next is NULL
+    newNode->next = NULL;
 
     // Traverse the list to find the last node
     sLinkedListPtr currentNode = *head;
@@ -89,7 +93,8 @@ int sLinkedListSearch(sLinkedListPtr* head, double value) {
 
     // Start from the head node
     sLinkedListPtr tempNode = *head;
-    int pos = 0; // Position counter
+    // Position counter
+    int pos = 0;
 
     // Traverse the list
     while (tempNode != NULL) {
@@ -97,8 +102,10 @@ int sLinkedListSearch(sLinkedListPtr* head, double value) {
         if (tempNode->value == value) {
             return pos;
         }
-        pos++;                 // Move to next position
-        tempNode = tempNode->next; // Move to next node
+        // Move to next positions
+        pos++;
+        // Move to next node
+        tempNode = tempNode->next; 
     }
 
     // Value not found in the list
@@ -119,7 +126,8 @@ double sLinkedListGetValue(sLinkedListPtr* head, int pos) {
 
     // Start from the head node
     sLinkedListPtr tempNode = *head;
-    int i = 0; // Position counter
+    // Position counter
+    int i = 0; 
 
     // Traverse the list
     while (tempNode != NULL) {
@@ -128,7 +136,8 @@ double sLinkedListGetValue(sLinkedListPtr* head, int pos) {
             return tempNode->value;
         }
         i++;
-        tempNode = tempNode->next; // Move to next node
+        // Move to next node
+        tempNode = tempNode->next;
     }
 
     // Position not found in the list
@@ -160,7 +169,8 @@ void sLinkedListSetValue(sLinkedListPtr* head, int pos, double value) {
             return;
         }
         i++;
-        tempNode = tempNode->next; // Move to next node
+        // Move to next node
+        tempNode = tempNode->next;
     }
 
     // Position not found in the list
@@ -194,14 +204,15 @@ void sLinkedListDeletePos(sLinkedListPtr* head, int pos) {
 
     while (currentNode != NULL) {
         if (i == pos) {
-            // If it's the last node, update previous node's next to NULL
+            // If it's the last node, just delete it
             if (currentNode->next == NULL) {
                 previousNode->next = NULL;
                 free(currentNode);
                 return;
             }
-            // Otherwise, skip over the current node
+            // Otherwise, change pointer accordingly
             previousNode->next = currentNode->next;
+            // Then delete current node
             free(currentNode);
             return;
         }
@@ -239,17 +250,23 @@ void sLinkedListDeleteLast(sLinkedListPtr* head) {
 }
 
 void sLinkedListDeleteList(sLinkedListPtr* head){
-    sLinkedListPtr current = *head; // Start from the head node
-    sLinkedListPtr next;            // Temporary pointer to store next node
+    // Start from the head node
+    sLinkedListPtr current = *head;
+    // Temporary pointer to store next node
+    sLinkedListPtr next;
 
     // Traverse the list and free each node
     while (current != NULL) {
-        next = current->next; // Save pointer to next node
-        free(current);           // Free the current node
-        current = next;          // Move to the next node
+        // Save pointer to next node
+        next = current->next;
+        // Free the current node
+        free(current);
+        // Move to the next node
+        current = next;
     }
 
-    *head = NULL; // Set head to NULL to indicate the list is empty
+    // Set head to NULL to indicate the list is empty
+    *head = NULL;
 }
 
 
