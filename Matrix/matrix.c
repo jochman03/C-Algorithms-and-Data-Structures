@@ -4,10 +4,10 @@
 #include "matrix.h"
 
 /*
-    Static helper function for handling memory allocation errors,
+    Static helper function for handling memory allocation failures,
     preventing incorrect program behavior.
 */
-_Noreturn static void allocationError(){
+_Noreturn static void allocationFailure(){
     fprintf(stderr, "There is not enough memory available.\n");
     exit(EXIT_FAILURE);
 }
@@ -16,6 +16,16 @@ double matrixGetValue(matrix* m, int i, int j){
     // Check if matrix exists (is not null)
     if(m == NULL){
         fprintf(stderr, "Matrix does not exist.\n");
+        return -1;
+    }
+    // Check if index is positive
+    if(i < 0 || j < 0){
+        fprintf(stderr, "Index could not be negative.\n");
+        return -1;
+    }
+    // Check if index matches the matrix dimensions
+    if(i >= m->rows || j >= m->cols){
+        fprintf(stderr, "Index out of bounds.\n");
         return -1;
     }
     // Return value of matrix element using the macro.
@@ -28,6 +38,16 @@ void matrixSetValue(matrix* m, int i, int j, double value){
         fprintf(stderr, "Matrix does not exist.\n");
         return;
     }
+    // Check if index is positive
+    if(i < 0 || j < 0){
+        fprintf(stderr, "Index could not be negative.\n");
+        return;
+    }
+    // Check if index matches the matrix dimensions
+    if(i >= m->rows || j >= m->cols){
+        fprintf(stderr, "Index out of bounds.\n");
+        return;
+    }
     // Assing value to matrix element using the macro.
     m->data[MATRIX_ADDR(m, i, j)] = value;
     return;
@@ -38,7 +58,7 @@ matrix* matrixCreate(int rows, int cols){
     matrix* m = malloc(sizeof(matrix));
     // Check if allocation was successfull
     if(m == NULL){
-        allocationError();
+        allocationFailure();
     }
     m->rows = rows;
     m->cols = cols;
@@ -46,7 +66,7 @@ matrix* matrixCreate(int rows, int cols){
     m->data = malloc(sizeof(double) * rows * cols);
     // Check if allocation was successfull
     if((m->data) == NULL){
-        allocationError();
+        allocationFailure();
     }
     // Fill matrix with zeros
     for(int i = 0; i < rows; i++){
@@ -253,7 +273,7 @@ matrix* matrixTranspose(matrix* m){
 double matrixDetChio(matrix* m){
     // Check if matrix exists (is not null)
     if(m == NULL){
-        allocationError();
+        allocationFailure();
     }
 
     // Check if matrix is square
