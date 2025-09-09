@@ -233,6 +233,7 @@ void uLinkedListDelete(uLinkedListPtr* head, int index){
 
                     // Remove the now-empty current node from the list
                     previousNode->next = currentNode->next;
+                    free(currentNode->values);
                     free(currentNode);
                 }
             }
