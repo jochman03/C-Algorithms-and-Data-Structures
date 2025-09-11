@@ -11,3 +11,4 @@ This repository contains a collection of **C implementations for algorithms and 
 
 - **Unrolled Linked List** – Efficient dynamic list storing multiple values per node: creation, deletion, insertion, deletion by index, search, access by index, printing, and memory management.
 - **Queue** – Dynamic circular queue operations: creation, enqueue, dequeue, peek, automatic resizing, length check, empty check, and printing contents.
+- **Hash Table** – Dynamic structure with operations: creation, insertion (with quadratic probing), search, deletion, printing contents, memory management, and collision handling.
