@@ -13,3 +13,4 @@ This repository contains a collection of **C implementations for algorithms and 
 - **Queue** – Dynamic circular queue operations: creation, enqueue, dequeue, peek, automatic resizing, length check, empty check, and printing contents.
 - **Hash Table** – Dynamic structure with operations: creation, insertion (with quadratic probing), search, deletion, printing contents, memory management, and collision handling.
 - **Skip List** – Probabilistic layered list supporting fast operations: creation, insertion, deletion by key, search by key, display by level, and memory management.
+- **Binary Search Tree (BST)** – Dynamic tree structure with operations: creation, insertion (with key and data), search by key, deletion (handles 0/1/2 children), height calculation, tree printing, and full memory management.
